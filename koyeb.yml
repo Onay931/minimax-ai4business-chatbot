@@ -1,0 +1,17 @@
+name: ai4business-chatbot
+services:
+  - name: chatbot-backend
+    type: web
+    build:
+      image: node:18
+      commands:
+        - npm install
+    ports:
+      - port: 3000
+        type: http
+    env:
+      - name: DEEPSEEK_API_KEY
+        value: your_actual_api_key_here  # Replace with your actual key
+    routes:
+      - path: /
+        type: rewrite
